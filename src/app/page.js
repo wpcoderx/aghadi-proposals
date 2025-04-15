@@ -19,37 +19,49 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100">
       {/* Hero Section */}
-      <section className="relative h-screen w-full flex items-center justify-center bg-gradient-to-br from-indigo-900 to-purple-800 overflow-hidden">
+      <section className="relative h-screen w-full flex items-center justify-center bg-gradient-to-br from-indigo-900 to-purple-800 overflow-hidden bg-[linear-gradient(135deg,rgba(110,17,176,0.5),rgba(49,44,133,0.5)),url('/images/banner_04.jpg')] bg-cover bg-center overflow-hidden">
         <div className="absolute inset-0 opacity-20 bg-[url('https://proposals.aghadiinfotech.com/wp-content/uploads/2021/10/pattern.svg')] bg-cover animate-pulse"></div>
 
         <div className="relative z-10 text-center text-white px-6 max-w-4xl">
-          <img
-            src="https://proposals.aghadiinfotech.com/wp-content/uploads/2021/10/logo.svg"
-            alt="Aghadi Infotech Logo"
-            className="mx-auto mb-8 w-48 md:w-56 transition-transform duration-300 hover:scale-105"
-          />
           <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
+            <span className="">Web Design & Development</span>
+            <br />
+            Proposal
+          </h1>
+          {/* <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
             <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-300 to-pink-300">
               Web Design & Development
             </span>
             <br />
             Proposal
-          </h1>
+          </h1> */}
           <p className="text-xl md:text-2xl font-light mb-8 mx-auto max-w-2xl">
             Crafting digital experiences that drive results
           </p>
 
-          <div className="my-10">
-            <hr className="border-t-2 border-white w-32 mx-auto opacity-50" />
-            <p className="uppercase mt-4 tracking-widest text-sm opacity-80">
+          <div className="my-10 flex items-center gap-2 justify-center">
+            <hr className="w-[50px]"></hr>
+            <p className="uppercase mt-4 mb-4 tracking-widest text-sm opacity-80">
               Prepared for
             </p>
-            <p className="text-2xl mt-2 font-medium">Client Name</p>
+            <hr className="w-[50px]"></hr>
           </div>
-
-          <div className="absolute bottom-1 w-full animate-bounce">
-            <FaChevronDown className="mx-auto text-2xl opacity-70" />
-          </div>
+        </div>
+        <div className="absolute bottom-0 w-full animate-bounce">
+          <FaChevronDown className="mx-auto text-xl opacity-70 mb-[-12px] text-[#fff]" />
+          <FaChevronDown className="mx-auto text-2xl opacity-70 text-[#fff]" />
+        </div>
+        <div class="absolute bottom-0 w-full">
+          <svg
+            class="w-full h-[75px]"
+            viewBox="0 0 1000 100"
+            preserveAspectRatio="none"
+          >
+            <path
+              d="M500.2,94.7L0,0v100h1000V0L500.2,94.7z"
+              fill="#f9fafb"
+            ></path>
+          </svg>
         </div>
       </section>
 
@@ -88,10 +100,25 @@ export default function Home() {
             />
           </div>
         </div>
+        <div class="absolute bottom-0 w-full">
+          <svg
+            class="w-full h-[75px]"
+            viewBox="0 0 1000 100"
+            preserveAspectRatio="none"
+          >
+            <path
+              d="M500.2,94.7L0,0v100h1000V0L500.2,94.7z"
+              fill="#f9fafb"
+            ></path>
+          </svg>
+        </div>
       </section>
 
       {/* Solution Section */}
-      <section id="solution" className="bg-white py-20 px-4 md:px-8 relative">
+      <section
+        id="solution"
+        className="bg-white py-20 px-4 md:px-8 relative overflow-hidden"
+      >
         <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
           <div>
             <img
