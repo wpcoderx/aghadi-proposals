@@ -2,7 +2,11 @@ import React from 'react'
 
 const TopBar = () => {
   return (
-    <div>TopBar</div>
+    <header>
+      <div className='container'>
+        asd
+      </div>
+    </header>
   )
 }
 
