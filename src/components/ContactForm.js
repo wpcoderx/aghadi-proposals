@@ -33,12 +33,12 @@ export default function ContactForm() {
     const data = await res.json();
     console.log(data);
 
-    if (data.status) {
+    if (data.success) {
         await fetch_contact();
-        toast.success("Sent!");
+        toast.success(data.message || "Message sent!");
         setForm({ contactName: "", contactEmail: "", contactMessage: "" });
       } else {
-        toast.error("Error");
+        toast.error(data.message || "Something went wrong");
       }
   };
 

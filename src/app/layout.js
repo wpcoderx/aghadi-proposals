@@ -2,6 +2,8 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
 import { Toaster } from 'react-hot-toast';
+import { ThemeProvider } from "@/lib/ThemeContext";
+import Topbar from "@/components/Topbar";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -24,8 +26,11 @@ export default function RootLayout({ children }) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
-        <Toaster position="top-center" />
+        <ThemeProvider>
+          <Topbar />
+          {children}
+          <Toaster position="top-center" />
+        </ThemeProvider>
       </body>
     </html>
   );

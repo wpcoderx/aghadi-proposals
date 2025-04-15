@@ -1,32 +1,24 @@
 @import "tailwindcss";
 
-/* app/globals.css */
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --bg: #ffffff;
+  --text: #111111;
+  --card: #f9f9f9;
+  --heading: #111;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+.dark {
+  --bg: #111111;
+  --text: #f1f1f1;
+  --card: #1e1e1e;
+  --heading: #ffffff;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+  transition: background-color 0.3s, color 0.3s;
 }
+
+

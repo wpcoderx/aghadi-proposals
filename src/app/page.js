@@ -17,7 +17,7 @@ import {
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100">
+    <div className="min-h-screen bg-[var(--bg)] text-[var(--text)] transition-colors">
       {/* Hero Section */}
       <section className="relative h-screen w-full flex items-center justify-center bg-gradient-to-br from-indigo-900 to-purple-800 overflow-hidden">
         <div className="absolute inset-0 opacity-20 bg-[url('https://proposals.aghadiinfotech.com/wp-content/uploads/2021/10/pattern.svg')] bg-cover animate-pulse"></div>
@@ -54,17 +54,17 @@ export default function Home() {
       </section>
 
       {/* Problem Section */}
-      <section id="problem" className="bg-gray-50 py-20 px-4 md:px-8">
+      <section id="problem" className="bg-[var(--bg)] text-[var(--text)] py-20 px-4 md:px-8">
         <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
           <div className="order-2 md:order-1">
             <span className="text-sm font-semibold tracking-widest text-indigo-600 uppercase">
               Challenge
             </span>
-            <h2 className="text-4xl font-bold text-gray-900 mt-2 mb-6">
+            <h2 className="text-4xl font-bold text-[var(--text)]-900 mt-2 mb-6">
               Identifying The Problem
             </h2>
             <div className="w-20 h-1 bg-gradient-to-r from-purple-500 to-pink-500 mb-8"></div>
-            <div className="space-y-4 text-gray-700 text-lg leading-relaxed">
+            <div className="space-y-4 text-[var(--text)]-700 text-lg leading-relaxed">
               <p>
                 Slate Executive Search Group faces website stability and load
                 speed optimization issues that affect user experience and
@@ -152,16 +152,16 @@ export default function Home() {
       </section>
 
       {/* Features Section */}
-      <section className="bg-gray-50 py-20 px-4 md:px-8">
+      <section className="bg-[var(--bg)] text-[var(--text)] py-20 px-4 md:px-8">
         <div className="max-w-4xl mx-auto text-center mb-16">
           <span className="text-sm font-semibold tracking-widest text-indigo-600 uppercase">
             Why Choose Us
           </span>
-          <h2 className="text-4xl font-bold text-gray-900 mt-2 mb-4">
+          <h2 className="text-4xl font-bold text-[var(--text)]-900 mt-2 mb-4">
             Key Features & Benefits
           </h2>
           <div className="w-20 h-1 bg-gradient-to-r from-purple-500 to-pink-500 mx-auto mb-8"></div>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-xl text-[var(--text)]-600 max-w-3xl mx-auto">
             Our comprehensive solution addresses all your challenges with
             cutting-edge technology
           </p>
@@ -222,7 +222,7 @@ export default function Home() {
           <span className="text-sm font-semibold tracking-widest text-indigo-600 uppercase">
             Get In Touch
           </span>
-          <h2 className="text-4xl font-bold text-gray-900 mt-2 mb-4">
+          <h2 className="text-4xl font-bold text-[var(--text)]-900 mt-2 mb-4">
             Ready To Transform Your Digital Presence?
           </h2>
           <div className="w-20 h-1 bg-gradient-to-r from-purple-500 to-pink-500 mx-auto mb-8"></div>
