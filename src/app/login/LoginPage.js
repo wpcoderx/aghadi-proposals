@@ -8,8 +8,12 @@ export default function LoginPage() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
-  const searchParams = useSearchParams();
-  const error = searchParams.get("error");
+  const params = new URLSearchParams(window.location.search);
+  const error = params.get("error");
+
+  if (error) {
+    setError(error);
+  }
 
   const handleCredentialsLogin = async (e) => {
     e.preventDefault();
