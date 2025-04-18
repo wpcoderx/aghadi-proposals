@@ -1,3 +1,4 @@
+// app/login/page.js
 import { Suspense } from "react";
 import LoginPage from "./LoginPage";
 

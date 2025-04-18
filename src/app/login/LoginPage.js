@@ -1,33 +1,27 @@
 "use client";
-
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { signIn } from "next-auth/react";
+import { useSearchParams } from "next/navigation";
 import { FaGithub, FaGoogle, FaLock } from "react-icons/fa";
 
 export default function LoginPage() {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-  const [error, setError] = useState(null);
-
-  useEffect(() => {
-    const params = new URLSearchParams(window.location.search);
-    const err = params.get("error");
-    if (err) {
-      setError(err);
-    }
-  }, []);
-
-  const handleCredentialsLogin = async (e) => {
-    e.preventDefault();
-
-    await signIn("credentials", {
-      username,
-      password,
-      redirect: true,
-      callbackUrl: "/",
-    });
-  };
-
+    const [username, setUsername] = useState("");
+    const [password, setPassword] = useState("");
+  
+    const searchParams = useSearchParams();
+    const error = searchParams.get("error");
+  
+    const handleCredentialsLogin = async (e) => {
+      e.preventDefault();
+  
+      await signIn("credentials", {
+        username,
+        password,
+        redirect: true,
+        callbackUrl: "/",
+      });
+    };
+  
   const handleGitHubLogin = () => {
     signIn("github", { callbackUrl: "/" });
   };
@@ -59,7 +53,6 @@ export default function LoginPage() {
             placeholder="Password"
             className="w-full px-4 py-2 rounded border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-indigo-500"
             value={password}
-            autoComplete="current-password"
             onChange={(e) => setPassword(e.target.value)}
           />
           <button
@@ -80,12 +73,12 @@ export default function LoginPage() {
         </div>
 
         <div className="mt-6">
-          <button
-            onClick={() => signIn("google", { callbackUrl: "/dashboard" })}
-            className="w-full flex items-center justify-center gap-2 bg-gray-800 hover:bg-gray-900 text-white font-semibold py-2 rounded transition"
-          >
-            <FaGoogle /> Signin with Google
-          </button>
+
+ 
+      
+            <button type="submit"  onClick={() => signIn('google', { callbackUrl: '/dashboard' })} className="w-full flex items-center justify-center gap-2 bg-gray-800 hover:bg-gray-900 text-white font-semibold py-2 rounded transition"> <FaGoogle />  Signin with Google</button>
+
+
         </div>
       </div>
     </div>
