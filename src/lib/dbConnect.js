@@ -16,16 +16,20 @@ const dbConnect = async () => {
   if (cached.conn) return cached.conn;
 
   if (!cached.promise) {
-    try {
-      cached.promise = mongoose.connect(MONGODB_URI, {
-        bufferCommands: false,
-      }).then((mongoose) => mongoose);
+    cached.promise = mongoose.connect(MONGODB_URI, {
+      bufferCommands: false,
+      serverSelectionTimeoutMS: 20000, // Optional: for slow connections
+    }).then((mongoose) => {
+      return mongoose;
+    });
+  }
 
-      cached.conn = await cached.promise;
-    } catch (error) {
-      console.error('MongoDB connection error:', error.message);
-      throw new Error('Failed to connect to MongoDB');
-    }
+  try {
+    cached.conn = await cached.promise;
+  } catch (error) {
+    cached.promise = null; // reset for future attempts
+    console.error('MongoDB connection error:', error.message);
+    throw new Error('Failed to connect to MongoDB');
   }
 
   return cached.conn;

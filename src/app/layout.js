@@ -5,6 +5,8 @@ import { Toaster } from 'react-hot-toast';
 import { ThemeProvider } from "@/lib/ThemeContext";
 import Topbar from "@/components/Topbar";
 
+import SessionWrapper from "@/lib/Providers";
+
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -26,11 +28,13 @@ export default function RootLayout({ children }) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <ThemeProvider>
-          <Topbar />
-          {children}
-          <Toaster position="top-center" />
-        </ThemeProvider>
+        <SessionWrapper>
+          <ThemeProvider>
+            <Topbar />
+            {children}
+            <Toaster position="top-center" />
+          </ThemeProvider>
+        </SessionWrapper>
       </body>
     </html>
   );

@@ -1,13 +1,19 @@
-"use client";
-import ThemeToggle from "./ThemeToggle";
+import React from "react";
+import Link from "next/link";
 
+import ThemeToggle from "./ThemeToggle";
+import AuthButton from "./AuthButton";
 
 const Topbar = () => {
-
   return (
     <div className="flex justify-between items-center p-4 border-b">
-      <h1 className="text-lg font-semibold">Aghadi Infotech</h1>
-      <ThemeToggle />
+      <h1 className="text-lg font-semibold">
+        <Link href="/"> Aghadi Infotech </Link>
+      </h1>
+      <div className="flex items-center gap-4">
+        <ThemeToggle />
+        <AuthButton />
+      </div>
     </div>
   );
 };
