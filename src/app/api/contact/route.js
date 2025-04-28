@@ -8,35 +8,32 @@ export async function POST(request) {
     await dbConnect();
 
     const body = await request.json();
-
     const { contactName, contactEmail, contactMessage } = body;
 
-    contactName = cleanInput(contactName);
-    contactEmail = cleanInput(contactEmail);
-    contactMessage = cleanInput(contactMessage);
+    const sanitizedContactName = cleanInput(contactName);
+    const sanitizedContactEmail = cleanInput(contactEmail);
+    const sanitizedContactMessage = cleanInput(contactMessage);
 
-
-    if (!contactName || !contactEmail) {
+    if (!sanitizedContactName || !sanitizedContactEmail) {
       return NextResponse.json(
         { success: false, message: "Name and email are required." },
         { status: 400 }
       );
     }
 
-
     // email validation
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailPattern.test(contactEmail)) {
+    if (!emailPattern.test(sanitizedContactEmail)) {
       return NextResponse.json(
-        { success: false, message: 'Invalid email address.' },
+        { success: false, message: "Invalid email address." },
         { status: 400 }
       );
     }
 
     const newContact = new Contact({
-      contactName,
-      contactEmail,
-      contactMessage,
+      contactName: sanitizedContactName,
+      contactEmail: sanitizedContactEmail,
+      contactMessage: sanitizedContactMessage,
     });
 
     await newContact.save();
@@ -48,17 +45,17 @@ export async function POST(request) {
   } catch (error) {
     console.error("Contact API error:", error);
     return NextResponse.json(
-      { success: false, message: "There is some issue on contact.." },
+      { success: false, message: "There was an issue submitting the contact form.", error: error.message },
       { status: 500 }
     );
   }
 }
 
 export async function GET() {
-  await dbConnect();
-
   try {
-    const list = await Contact.find({}).sort({ createdAt: -1 }); // Sort by newest first
+    await dbConnect();
+
+    const list = await Contact.find({}).sort({ createdAt: -1 });
     return NextResponse.json(
       { 
         success: true, 
@@ -67,12 +64,12 @@ export async function GET() {
       },
       { status: 200 }
     );
-  } catch(error) {
+  } catch (error) {
     console.error("Contact API error:", error);
     return NextResponse.json(
       { 
         success: false, 
-        message: "Failed to retrieve contact submissions",
+        message: "Failed to retrieve contact submissions", 
         error: error.message 
       },
       { status: 500 }

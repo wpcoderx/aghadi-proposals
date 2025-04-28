@@ -58,17 +58,22 @@ const DashboardPage = () => {
               <thead className="bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 uppercase">
                 <tr>
                   <th className="px-6 py-3 border-b">#</th>
+                  <th className="px-6 py-3 border-b">Date</th>
                   <th className="px-6 py-3 border-b">Name</th>
                   <th className="px-6 py-3 border-b">Email</th>
                   <th className="px-6 py-3 border-b">Message</th>
-                  <th className="px-6 py-3 border-b">Date</th>
-                  <th className="px-6 py-3 border-b text-right">Actions</th>
                 </tr>
               </thead>
               <tbody className="bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-200">
                 {contact?.map((item, index) => (
                   <tr key={item._id} className="hover:bg-gray-50 dark:hover:bg-gray-700">
+                    
                     <td className="px-6 py-4 border-b">{index + 1}</td>
+                    <td className="px-6 py-4 border-b">
+                      <span className="px-2 py-1">
+                        {new Date(item.createdAt).toLocaleDateString()}
+                      </span>
+                    </td>
                     <td className="px-6 py-4 border-b font-medium">{item.contactName}</td>
                     <td className="px-6 py-4 border-b">
                       <a
@@ -83,15 +88,7 @@ const DashboardPage = () => {
                         {item.contactMessage}
                       </span>
                     </td>
-                    <td className="px-6 py-4 border-b">
-                      <span className="px-2 py-1">
-                        {new Date(item.createdAt).toLocaleDateString()}
-                      </span>
-                    </td>
-                    <td className="px-6 py-4 border-b text-right space-x-2">
-                      <button className="text-blue-600 hover:underline">Edit</button>
-                      <button className="text-red-600 hover:underline">Delete</button>
-                    </td>
+                    
                   </tr>
                 ))}
               </tbody>
