@@ -104,6 +104,15 @@ export default function AuthButton() {
         </>
       ) : (
         <div className="flex items-center gap-4">
+
+          <Link href="/products" className={navLinkClasses("/products")}>
+              Products
+            </Link>
+
+            <Link href="/cart" className={navLinkClasses("/cart")}>
+              Cart
+            </Link>
+
           <button
             onClick={() => signIn()}
             title="Login"
