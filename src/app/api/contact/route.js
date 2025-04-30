@@ -55,7 +55,7 @@ export async function GET() {
   try {
     await dbConnect();
 
-    const list = await Contact.find({}).sort({ createdAt: -1 });
+    const list = await Contact.find({}).sort({createdAt:-1});
     return NextResponse.json(
       { 
         success: true, 

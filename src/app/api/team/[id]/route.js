@@ -6,7 +6,7 @@ export async function GET(request, { params }) {
   try {
     await dbConnect();
 
-    const user = await User.findById(params.id); // not an object
+    const user = await User.findById(params.id);
 
     if (!user) {
       return NextResponse.json(

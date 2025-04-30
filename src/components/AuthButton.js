@@ -41,7 +41,16 @@ export default function AuthButton() {
               Dashboard
             </Link>
 
+            <Link href="/products" className={navLinkClasses("/products")}>
+              Products
+            </Link>
+
+            <Link href="/cart" className={navLinkClasses("/cart")}>
+              Cart
+            </Link>
+
             <div className="relative group">
+              
               {/* Parent Item */}
               <button
                 onClick={() => setTeamOpen(!teamOpen)}

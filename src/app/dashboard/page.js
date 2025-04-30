@@ -2,8 +2,13 @@
 import { useEffect, useState } from "react";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
+import { useCart } from "@/context/cartContext";
 
 const DashboardPage = () => {
+
+  const {cartItems} = useCart();
+
+  console.log(cartItems);
 
   const { data: session, status } = useSession();
 

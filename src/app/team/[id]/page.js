@@ -1,34 +1,18 @@
-'use client'
-import React, { useEffect, useState } from "react";
+import { notFound } from "next/navigation";
 import Image from "next/image";
 
-const UserPage = ({ params }) => {
-  const [user, setUser] = useState(null);
+export default async function UserPage({ params }) {
+  const { id } = await params;
 
-  useEffect(() => {
-    const fetchUser = async () => {
-      try {
-        const res = await fetch(`/api/team/${params.id}`);
-        
-        if (!res.ok) throw new Error("Failed to fetch user");
+  const res = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/api/team/${id}`, {
+    cache: 'no-store',
+  });
 
-        const result = await res.json();
-        setUser(result.data);
-      } catch (error) {
-        console.error("Error fetching user:", error);
-      }
-    };
-
-    fetchUser();
-  }, [params.id]);
-
-  if (!user) {
-    return (
-      <div className="min-h-screen flex items-center justify-center text-gray-600 dark:text-gray-300">
-        Loading...
-      </div>
-    );
+  if (!res.ok) {
+    notFound();
   }
+
+  const { data: user } = await res.json();
 
   const userAvatar =
     user?.image ||
@@ -53,11 +37,8 @@ const UserPage = ({ params }) => {
 
         <div className="mt-6 text-sm text-gray-500 dark:text-gray-400">
           <p><strong>ID:</strong> {user._id}</p>
-          {/* Add more user data here if available */}
         </div>
       </div>
     </div>
   );
-};
-
-export default UserPage;
+}

@@ -6,6 +6,7 @@ import { ThemeProvider } from "@/lib/ThemeContext";
 import Topbar from "@/components/Topbar";
 
 import SessionWrapper from "@/lib/Providers";
+import { CartProvider } from "@/context/cartContext";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -29,11 +30,13 @@ export default function RootLayout({ children }) {
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <SessionWrapper>
-          <ThemeProvider>
-            <Topbar />
-            {children}
-            <Toaster position="top-center" />
-          </ThemeProvider>
+          <CartProvider>
+            <ThemeProvider>
+              <Topbar />
+              {children}
+              <Toaster position="top-center" />
+            </ThemeProvider>
+          </CartProvider>
         </SessionWrapper>
       </body>
     </html>

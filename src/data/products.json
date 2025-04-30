@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "title": "Darjeeling Organic Green Tea",
+    "thumbnailUrl": "https://picsum.photos/seed/tea/300/200",
+    "price": 249
+  },
+  {
+    "id": 2,
+    "title": "Handcrafted Copper Water Bottle",
+    "thumbnailUrl": "https://picsum.photos/seed/copper/300/200",
+    "price": 799
+  },
+  {
+    "id": 3,
+    "title": "Ayurvedic Herbal Hair Oil",
+    "thumbnailUrl": "https://picsum.photos/seed/oil/300/200",
+    "price": 199
+  },
+  {
+    "id": 4,
+    "title": "Neem Wood Comb Set",
+    "thumbnailUrl": "https://picsum.photos/seed/comb/300/200",
+    "price": 99
+  },
+  {
+    "id": 5,
+    "title": "Handloom Cotton Kurta",
+    "thumbnailUrl": "https://picsum.photos/seed/kurta/300/200",
+    "price": 899
+  },
+  {
+    "id": 6,
+    "title": "Terracotta Clay Water Jug",
+    "thumbnailUrl": "https://picsum.photos/seed/clay/300/200",
+    "price": 349
+  },
+  {
+    "id": 7,
+    "title": "Himalayan Pink Salt Pack",
+    "thumbnailUrl": "https://picsum.photos/seed/salt/300/200",
+    "price": 129
+  },
+  {
+    "id": 8,
+    "title": "Spicy Masala Chai Blend",
+    "thumbnailUrl": "https://picsum.photos/seed/chai/300/200",
+    "price": 175
+  },
+  {
+    "id": 9,
+    "title": "Sandalwood Face Pack Powder",
+    "thumbnailUrl": "https://picsum.photos/seed/sandal/300/200",
+    "price": 149
+  },
+  {
+    "id": 10,
+    "title": "Pure Kashmiri Saffron (1g)",
+    "thumbnailUrl": "https://picsum.photos/seed/saffron/300/200",
+    "price": 499
+  }
+]
